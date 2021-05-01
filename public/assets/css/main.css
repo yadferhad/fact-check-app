@@ -1,0 +1,281 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.modal-backdrop {
+    opacity: 0.8 !important;
+}
+
+.quantity-input-group {
+    width: 200px;
+}
+
+.quantity-no-arrows {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-warning {
+    padding-top: 10px;
+    font-size: 11px;
+    display: none;
+}
+
+.product-search-input {
+    width: 250px;
+}
+
+.hidden {
+    display: none;
+}
+
+.outta-stock-header {
+    background-color: #f4f6f9;
+    opacity: 0.5;
+}
+
+.product-outta-stock {
+    background-color: #f4f6f9;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.pos {
+    height: 100%;
+}
+
+.summary-list {
+    padding: 5% 10%;
+    font-size: 14px;
+    overflow-y: auto;
+    height: 300px;
+}
+
+/*.summary-list::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
+
+.terminal-scrollable {
+    overflow-y: auto;
+    height: 30vh;
+}
+
+.summary-list-li {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.summary-list-unit {
+    font-size: 15px;
+}
+
+.summary-footer-top {
+    border-top: 1px solid rgba(27, 197, 189, 0.1) !important;
+}
+
+.summary-header-bottom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.summary-detail {
+    padding: 2% 0;
+}
+
+.summary-detail p {
+    font-size: 18px;
+    color: white;
+}
+
+.logo-text-big {
+    margin-bottom: auto;
+    margin-top: auto;
+    font-size: 25px;
+    display: inline;
+}
+
+.logo-pharmacy-name {
+    padding-left: 10px;
+    font-size: 15px;
+    display: inline;
+}
+
+.content-pos {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.header-small {
+    height: 50px !important;
+}
+
+.screen-adjustment-padding {
+    padding-bottom: 5px;
+}
+
+.vertical-offset {
+    margin-top: 17vh;
+}
+
+.logo-text-large {
+    font-size: 30px;
+}
+
+.fluid-condensed {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.modal-xl-custom {
+    max-width: 85%;
+}
+
+.select-higher {
+    margin-top: 5px;
+}
+
+.wizard-table {
+    max-width: 100vh;
+}
+
+.order-items-empty {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.order-items-empty h6 {
+    margin-bottom: 50px;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+.button-center button {
+    width: 70%;
+}
+
+#pricingAlgorithmGroup label {
+    margin-bottom: 10px;
+}
+
+.flex-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.modal-large-vertical {
+    min-height: 60vh;
+}
+
+.modal-padded-content {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.text-iqd-small {
+    font-size: 15px;
+    padding-left: 10px;
+    color: gray;
+}
+
+.centered-import-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    flex-direction: column;
+}
+
+.big-dropzone {
+    width: 45vh;
+}
+
+.modal-xl-import {
+    max-width: 70%;
+}
+
+.longer-button {
+    width: 20vh;
+}
+
+.import-progress {
+    width: 30vh;
+}
+
+.img-padding {
+    padding-bottom: 30px;
+}
+
+.items-not-imported {
+    width: 50%;
+    padding-top: 20px;
+}
+
+.text-background-red {
+    text-decoration: underline;
+    margin-right: 5px;
+    color: #eb3b5a;
+}
+
+.text-background-red:hover {
+    text-decoration: none;
+    background-color: #eb3b5a;
+    color: white;
+    margin-right: 5px;
+}
+
+.items-not-imported li {
+    padding-bottom: 10px;
+}
+
+.dashboard-date {
+    text-decoration: underline;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #eb3b5a;
+}
+
+.dashboard-date:hover {
+    text-decoration: none;
+    background-color: #eb3b5a;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card-stretch-custom {
+    min-height: 230px;
+}
+
+.no-pointers {
+    pointer-events: none;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.modal-footer-stick-bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.swal2-html-container {
+    max-height: 50vh !important;
+}
+
+.min-height-45 {
+    min-height: 45vh;
+}
+
+.fake-card {
+    border-radius: 15px;
+}
+
+
