@@ -98,17 +98,15 @@
                                                         <p class="text-dark-50 mt-3 font-weight-bold">Users familiar with SPARQL can write queries.</p>
                                                     </div>
                                                 </div>
-                                                <a href='#' class="btn btn-link btn-link-warning font-weight-bold">Documentation
+                                                <a href='{{ route('doc.index') }}' class="btn btn-link btn-link-warning font-weight-bold">Documentation
                                                     <span class="svg-icon svg-icon-lg svg-icon-warning">
-															<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<polygon points="0 0 24 0 24 24 0 24" />
-																	<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
-																	<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-																</g>
-															</svg>
-                                                        <!--end::Svg Icon-->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                                <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
+                                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
+                                                            </g>
+                                                        </svg>
                                                     </span>
                                                 </a>
                                             </div>
@@ -131,6 +129,7 @@
                                                     <h3 class="card-label">
                                                         <span class="d-block text-dark font-weight-bolder">Response Overview</span>
                                                         <span class="d-block text-dark-50 mt-2 font-size-sm">Submit queries on the right and review responses</span>
+                                                        <span id="queryTextDisplay" class="d-block text-dark-50 mt-2 font-size-sm"></span>
                                                     </h3>
                                                 </div>
                                                 <div class="row align-items-center">
@@ -142,14 +141,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--begin::Body-->
                                             <div class="card-body">
                                                 <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable"></div>
                                                 <h4 id="runQueryAlert" style="padding-top: 10vh; margin-left: 50vh" class="text-black-50">run query to get results</h4>
-                                            </div>
-                                            <!--end::Body-->
-                                            <div class="card-footer">
-                                                <span class="d-block text-dark font-weight-bolder">Entry count: <span id="entryCountEl">0</span></span>
                                             </div>
                                         </div>
                                         <!--end::Charts Widget 2-->
@@ -175,19 +169,38 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-2 justify-content-center">
-                                                                    <a v-on:click="getSparqlSource()" data-toggle="modal" data-target="#sparqlModal" href="#" role="button" class="btn btn-icon btn-light-dark">
-                                                                        <i class="flaticon2-drop"></i>
-                                                                    </a>
+                                                                    <a v-on:click="getSparqlSource()" data-toggle="modal" data-target="#sparqlModal" href="#" role="button" class="btn btn-icon btn-light-dark"><i class="flaticon2-drop"></i></a>
                                                                 </div>
                                                             </div>
-                                                            <div v-if="this.params != null" id="queryBlankContainer" v-cloak>
-                                                                <div v-for="(item, index) in params" :key="index">
+                                                            <div v-if="this.activeQuery != null && this.activeQueryObj.introduction != null" class="pt-5" v-cloak>
+                                                                <a href="#" data-toggle="modal" data-target="#queryIntroduction" v-on:click="getQueryIntroduction()" role="button" class="btn btn-info btn-lg btn-block">Query Introduction</a>
+                                                            </div>
+                                                            <div v-if="this.activeQuery != null && this.params != null" id="queryBlankContainer" v-cloak>
+                                                                <div v-for="item in params" :key="item">
                                                                     <label class="col-form-label text-inverse-success">@{{ fromCamelToSentenceCase(item) }}</label>
-                                                                    <input v-bind:id="item + 'ParamInput'" type="text" class="form-control" :placeholder="'Enter ' + fromCamelToSentenceCase(item)"/>
+                                                                    <div v-if="item.includes('date')" class="row">
+                                                                        <div class="col-xl-6">
+                                                                            <input data-provide="datepicker" data-date-format="yyyy-mm-dd" v-bind:id="item + 'ParamInput'" type="text" class="form-control" :placeholder="'Enter ' + fromCamelToSentenceCase(item)"/>
+                                                                        </div>
+                                                                        <div class="col-xs-1">
+                                                                            <h5 class="col-form-label text-inverse-success">+/-</h5>
+                                                                        </div>
+                                                                        <div class="col-xl-4">
+                                                                            <input value="0" id="dateRangeParamInput" type="number" class="form-control"/>
+                                                                        </div>
+                                                                        <div class="col-xs-1">
+                                                                            <h5 class="col-form-label text-inverse-success">days</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="typeahead" v-else>
+                                                                        <input v-bind:id="item + 'ParamInput'" type="text" class="form-control" :placeholder="'Enter ' + fromCamelToSentenceCase(item)"/>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div v-if="activeTab === 'advanced'">
+                                                            <a v-on:click="getDatasetPredicates()" href="#" data-toggle="modal" data-target="#predicatesModal" role="button" class="btn btn-info btn-lg btn-block mt-5">Dataset Predicates</a>
+                                                            <a v-on:click="getQueryBuilderOptions()" href="#" data-toggle="modal" data-target="#queryBuilderModal" role="button" class="btn btn-danger btn-lg btn-block mt-5">Query Builder</a>
                                                             <label class="col-form-label text-inverse-success">SPARQL Query</label>
                                                             <textarea class="form-control" rows="10" id="advancedSparqlQueryField"></textarea>
                                                         </div>
@@ -217,7 +230,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">SparQL Source</h5>
+                            <h5 class="modal-title">SPARQL Source</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <i aria-hidden="true" class="ki ki-close"></i>
                             </button>
@@ -227,6 +240,90 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal-->
+            <div class="modal fade" id="queryIntroduction" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Query Introduction</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="queryIntroductionEl"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal-->
+            <div class="modal fade" id="analysisModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Query Results Analysis</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="analysisEl"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal-->
+            <div class="modal fade" id="predicatesModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><span id="predicatesModalTitle"></span> Dataset Predicates</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="predicatesList"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal-->
+            <div class="modal fade" id="queryBuilderModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><span id="queryBuilderTitle"></span> Query Builder</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row pl-5 pr-5">
+                                <div id="listBoxContainer" class="col-7"></div>
+                                <div id="listBoxInputsContainer" class="col-5"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                            <button onclick="generateQuery()" type="button" class="btn btn-light-success font-weight-bold" data-dismiss="modal">Generate</button>
                         </div>
                     </div>
                 </div>

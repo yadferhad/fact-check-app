@@ -18,8 +18,8 @@ class CreateQueriesTable extends Migration
             $table->enum('type', ['count', 'list']);
             $table->string('query_text');
             $table->string('sparql');
-            $table->longText('introduction');
-            $table->longText('analysis');
+            $table->longText('introduction')->default(null);
+            $table->longText('analysis')->default(null);
             $table->enum('dataset', ['ibc', 'vdc']);
             $table->timestamps();
         });
