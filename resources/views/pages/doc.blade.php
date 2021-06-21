@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>FactCheck Documentation</title>
+    <title>CasualtIS Documentation</title>
     <meta name="description" content="factcheck" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -118,7 +118,7 @@
 										</span>
                             </div>
                             <div class="card-body d-flex justify-content-center flex-column col-lg-6 px-8 py-20 px-lg-20 py-lg-40">
-                                <h1 class="text-dark font-weight-bolder mb-8">FactCheck Tool<br><span class="font-size-h2 text-primary">Documentation</span></h1>
+                                <h1 class="text-dark font-weight-bolder mb-8">CasualtIS RDF Tool<br><span class="font-size-h2 text-primary">Documentation</span></h1>
                             </div>
                             <div class="position-relative px-20">
                                 <ul class="nav nav-tabs nav-tabs-line" role="tablist">
@@ -142,7 +142,7 @@
                             <div class="card mb-8">
                                 <div class="card-body">
                                     <div class="p-6">
-                                        <h1 class="text-dark mb-8">About FactCheck</h1>
+                                        <h1 class="text-dark mb-8">About CasualtIS</h1>
                                         <p class="font-size-h5">This tool allows both new and advanced users to write queries to confirm or debunk information on the web regarding the topic of violations in Syria and Iraq, specifically regarding the death of individuals in the countries.</p><br>
                                         <h3>Introduction & Motivation</h3><br>
                                         <p class="font-size-h6">Significant information currently accessible to anyone with access to the web can be found and shared within seconds. Because of this, misinformation gets spread throughout the media and by word of mouth.In regions of conflict, like Syria and Iraq, news sources are subject to spread such misinformation, whetherbecause they are biased or are censored from publishing certain material. Hence, accurate data compiledfrom such regions is not easily accessible to stakeholders. To provide stakeholders and other users with away to verify whether facts published are truly accurate, a system must be put in place using ‘ground truth’information from datasets compiled by field workers in the region, including individual accounts of humanrights violations and body counts. Two databases of concern are the Violations Documentation Center(VDC) in Syria and the Iraqi Body Count (IBC) database. We are working on a system that uses thesedatabases to investigate casualties from conflicts within Syria and Iraq for the purpose of fact checking aswell as to allow for the statistical exploration of the burden of war.</p>
@@ -188,7 +188,7 @@
                                 <div class="card-body">
                                     <div class="p-6">
                                         <h1 class="text-dark mb-8">Technology Stack</h1>
-                                        <p class="font-size-h6">FactCheck uses a number of tools, frameworks and programming languages to achieve results. Stored data is in the form of linked data and turtle files generated from JSON files scraped from the web. The client tool is built using Laravel PHP Framework and the frontend uses modern web technologies.</p><br>
+                                        <p class="font-size-h6">CasualtIS uses a number of tools, frameworks and programming languages to achieve results. Stored data is in the form of linked data and turtle files generated from JSON files scraped from the web. The client tool is built using Laravel PHP Framework and the frontend uses modern web technologies.</p><br>
                                         <h3 class="text-dark mb-8">Data collection</h3>
                                         <ol>
                                             <li class="font-size-h5">Java for scraping data from the web.</li>

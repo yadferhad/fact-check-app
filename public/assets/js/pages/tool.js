@@ -152,7 +152,7 @@ const vueApp = new Vue({
                 },
                 {
                     text: 'Martyrdom Location',
-                    value: 'martyrdomLocation'
+                    value: 'diedIn'
                 },
                 {
                     text: 'Published On',

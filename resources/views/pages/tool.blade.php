@@ -33,7 +33,7 @@
                         <!--begin::Dashboard-->
                         <!--begin::Header Row-->
                         <div class="row">
-                            <div class="col-xl-9">
+                            <div class="col-xl-8">
                                 <!--begin::Forms Widget 1-->
                                 <div class="card card-custom card-shadowless gutter-b card-stretch card-shadowless p-0">
                                     <!--begin::Nav Tabs-->
@@ -82,7 +82,7 @@
                                 </div>
                                 <!--end::Forms Widget 1-->
                             </div>
-                            <div class="col-xl-3">
+                            <div class="col-xl-4">
                                 <!--begin::Engage Widget 8-->
                                 <div class="card card-custom gutter-b card-stretch card-shadowless">
                                     <div class="card-body p-0 d-flex">
@@ -121,7 +121,7 @@
                             <div class="tab-pane fade show active" id="simpleModeTab" role="tabpanel">
                                 <!--begin::Content Row-->
                                 <div class="row">
-                                    <div class="col-xl-9">
+                                    <div class="col-xl-8">
                                         <!--begin::Charts Widget 2-->
                                         <div style="min-height: 50vh;" class="card card-custom card-stretch bg-gray-100 gutter-b card-shadowless" id="tableCardEl">
                                             <div class="card-header h-auto border-0">
@@ -129,7 +129,7 @@
                                                     <h3 class="card-label">
                                                         <span class="d-block text-dark font-weight-bolder">Response Overview</span>
                                                         <span class="d-block text-dark-50 mt-2 font-size-sm">Submit queries on the right and review responses</span>
-                                                        <span id="queryTextDisplay" class="d-block text-dark-50 mt-2 font-size-sm"></span>
+                                                        <span id="queryTextDisplay" class="d-block text-dark-50 mt-2 font-size-lg font-weight-bolder"></span>
                                                     </h3>
                                                 </div>
                                                 <div class="row align-items-center">
@@ -143,12 +143,12 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable"></div>
-                                                <h4 id="runQueryAlert" style="padding-top: 10vh; margin-left: 50vh" class="text-black-50">run query to get results</h4>
+                                                <h4 id="runQueryAlert" style="padding-top: 10vh;" class="text-black-50 text-center">run query to get results</h4>
                                             </div>
                                         </div>
                                         <!--end::Charts Widget 2-->
                                     </div>
-                                    <div class="col-xl-3">
+                                    <div class="col-xl-4">
                                         <!--begin::Stats Widget 7-->
                                         <div class="card card-custom bg-dark bg-hover-state-dark gutter-b card-stretch">
                                             <!--begin::Body-->

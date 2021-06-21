@@ -4,7 +4,7 @@
     <div class="container-fluid d-flex align-items-stretch justify-content-between">
         <div class="d-none d-lg-flex align-items-center mr-3">
             <a href="/">
-                <p class="logo-text-big text-dark">FactCheck</p>
+                <p class="logo-text-big text-dark">CasualtIS</p>
                 <span class="logo-pharmacy-name">v1.0</span>
             </a>
         </div>
@@ -18,7 +18,7 @@
                 </div>
                 <!--end::POS Button-->
                 <div class="topbar-item mr-4" data-offset="10px,0px">
-                    <a href="#"><div class="btn font-weight-bolder btn-sm btn-light-danger px-5">DOC</div></a>
+                    <a href="{{ route('doc.index') }}"><div class="btn font-weight-bolder btn-sm btn-light-danger px-5">DOCUMENTATION</div></a>
                 </div>
             </div>
             <!--end::Create-->

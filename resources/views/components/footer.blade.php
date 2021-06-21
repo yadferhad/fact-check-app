@@ -5,7 +5,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted font-weight-bold mr-2">{{ date("Y") }} ©</span>
-            <a href="#" class="text-dark-75 text-hover-info">FactCheck FYP CMPS 299</a><br>
+            <a href="#" class="text-dark-75 text-hover-info">CasualtIS</a><br>
             <a target="_blank" href="https://www.aub.edu.lb" class="text-primary text-hover-info">American University of Beirut</a>
         </div>
         <!--end::Copyright-->
