@@ -1,5 +1,5 @@
 # CasualtIS
-###### Version: 1.0<br>Developers: Yad Fatah, Lynn Wahab, Mark Nourallah<br>License: MIT License
+###### Version: 1.0.0<br>Developers: Yad Fatah, Lynn Wahab, Mark Nourallah<br>License: MIT License
 
 CasualtIS is a tool that uses RDF technologies coupled with SPARQL queries to fact check claims on Iraqi and Syrian wartime death toll data and prevent the spread of misinformation.
 
